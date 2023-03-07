@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <div class="nav">
+        <a th:href="@{/}" class="active">Home</a>
+        <a th:href="@{/adminRegister}">Register</a>
+        <a th:href="@{/login}">Sign in</a>
+    </div>
+</header>
+<h1 style="text-align:center">Register For the Admin Department</h1>
+<div class="container">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+        <form th:action="@{/saveAdmin}" method="post" th:object="${admin}">
+            <div class="form-group">
+                <label class="control-label" for="name"> Name </label>
+                <input id="name" class="form-control" th:field="*{name}"
+                       required autofocus="autofocus" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="email"> Email </label> <input
+                    id="email" class="form-control" th:field="*{email}" required
+                    autofocus="autofocus" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="password"> Password </label> <input
+                    id="password" class="form-control" type="password"
+                    th:field="*{password}" required autofocus="autofocus" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="role">Role </label>
+                <input id="role" class="form-control" th:field="*{adminRole}"
+                       required autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="form-group">
+                <!-- <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="admin_id" th:field="*{admin}">-->
+                <button type="submit" class="btn btn-info col-2">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<form th:action="@{/saveAdmin}" th:object="${admin}" method="POST">
+       <label style="padding-left: 50px;" for="name">Name</label>
+       <input style="margin-bottom: 20px; margin-left: 80px;" type="text" id="name" th:field="*{name}"><br>
+       <label style="padding-left: 50px;" for="emailID">Email</label>
+    <input style="margin-bottom: 20px; margin-left: 115px;"name="Email" type="email" id="emailID" th:field="*{email}"><br>
+    <label style="padding-left: 50px;" for="psd">Password</label>
+    <input style="margin-bottom: 20px; margin-left: 82px;" name = "password" type="password" id="psd" th:field="*{password}" ><span style="padding:2px;">(include min 8 characters)</span><br><br>
+    <label style="padding-left: 50px;" for="doj">Role</label>
+    <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="doj" th:field="*{adminRole}"><br>
+    <input type="submit" class="button" value="Submit">
+
+</form>
+-->
+</body>
+</html>

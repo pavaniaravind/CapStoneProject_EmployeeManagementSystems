@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="nav">
+  <a th:href="@{/a}" class="active">Home</a>
+  <a th:href="@{/adminRegister}">Register</a>
+  <a th:href="@{/login}">Sign in</a>
+</div>
+<h2>Welcome to the Company</h2>
+<p>Your Registration was Successful</p>
+<h3> To view the Employee List --- Go to <a th:href="@{/login}">Log in</a></h3>
+</body>
+</html>

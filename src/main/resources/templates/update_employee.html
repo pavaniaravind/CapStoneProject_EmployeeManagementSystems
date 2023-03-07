@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/style.css}" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+</head>
+<body>
+
+<h1>Update Employee Info</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <form th:action="@{/updateEmployee}" method="post" th:object="${employee}">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+          <label class="control-label" for="firstName"> First Name </label>
+          <input id="firstName" class="form-control" th:field="*{firstName}"
+                 required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="lastName"> Last Name </label> <input
+                id="lastName" class="form-control" th:field="*{lastName}"
+                required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="userName"> User Name </label>
+          <input id="userName" class="form-control" th:field="*{userName}"
+                 required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="email"> Email </label> <input
+                id="email" class="form-control" th:field="*{email}" required
+                autofocus="autofocus" />
+        </div>
+
+        <!--<div class="form-group">
+          <label class="control-label" for="password"> Password </label> <input
+                id="password" class="form-control" type="password"
+                th:field="*{password}" required autofocus="autofocus" />
+        </div>-->
+
+        <div class="form-group">
+          <label class="control-label" for="dob"> Date of Birth </label>
+          <input id="dob" class="form-control" th:field="*{dob}"
+                 required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="sal"> Salary </label> <input
+                id="sal" class="form-control" th:field="*{salary}"
+                required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="doj"> Date of Joining </label>
+          <input id="doj" class="form-control" th:field="*{doj}"
+                 required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+          <!-- <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="admin_id" th:field="*{admin}">-->
+          <button type="submit" class="btn btn-info col-2"> Save Employee</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--
+<form th:action="@{/updateEmployee}" th:object="${employee}" method="POST">
+  <input type="hidden" th:field="*{id}"/>
+  <label style="padding-left: 50px;" for="fname">FirstName</label>
+  <input style="margin-bottom: 20px; margin-left: 80px;" type="text" id="fname" th:field="*{firstName}"><br>
+  <label style="padding-left: 50px;" for="lname">LastName</label>
+  <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="lname" th:field="*{lastName}"><br>
+  <label style="padding-left: 50px;" for="uname">UserName</label>
+  <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="uname" th:field="*{userName}"><br>
+  <label style="padding-left: 50px;" for="emailID">Email</label>
+  <input style="margin-bottom: 20px; margin-left: 115px;"name="Email" type="email" id="emailID" th:field="*{email}"><br>
+  <label style="padding-left: 50px;" for="psd">Password</label>
+  <input style="margin-bottom: 20px; margin-left: 82px;" name = "password" type="password" id="psd" th:field="*{password}" ><span style="padding:2px;">(include min 8 characters)</span><br><br>
+  <label style="padding-left: 50px;" for="dob">DateOfBirth</label>
+  <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="dob" th:field="*{dob}" ><br>
+  <label style="padding-left: 50px;" for="sal">Salary</label>
+  <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="sal" th:field="*{salary}" ><br>
+  <label style="padding-left: 50px;" for="doj">DateOfJoining</label>
+  <input style="margin-bottom: 20px; margin-left: 81px;" type="text" id="doj" th:field="*{doj}"><br>
+  <input type="submit" class="button" value="Submit">
+
+</form>
+-->
+</body>
+</html>

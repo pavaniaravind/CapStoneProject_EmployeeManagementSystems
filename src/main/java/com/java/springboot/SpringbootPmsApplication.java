@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootPmsApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SpringbootPmsApplication.class, args);
 	}
 

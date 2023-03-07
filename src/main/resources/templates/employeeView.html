@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/style.css}" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script type="text/javascript" th:src="@{/actions.js}"></script>
+</head>
+
+<body>
+<div class="nav">
+  <a th:href="@{/}" class="active">Home</a>
+<!--  <a th:href="@{/adminRegister}">Register</a>
+  <a th:href="@{/login}">Sign in</a>-->
+  <a th:href="@{/logout}">Sign Out</a>
+</div>
+<div>
+
+</div>
+<div>
+  <a style="float=right" th:href="@{/register}" class="btn btn-primary btn-sm-mb-3">Add Employee</a>
+
+</div>
+
+<div class="container">
+  <!--<h1 th: object="${admin}">Welcome Admin <span th:text="${admin.getName}"></span></h1>-->
+  <h2 align="center">Employees Management System</h2>
+  <table class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>FistName</th>
+      <th>LastName</th>
+      <th>UserName</th>
+      <th>Email</th>
+      <th>DateOfBirth</th>
+      <th>Salary</th>
+      <th>DateOfJoining</th>
+      <th>EDIT or Delete</th>
+    </tr>
+    </thead>
+    <tr style="background-color:#ADD8E6" th:each="employee: ${listEmployees}">
+      <td th:text="${employee.id}"></td>
+      <td th:text="${employee.firstName}"></td>
+      <td th:text="${employee.lastName}"></td>
+      <td th:text="${employee.userName}"></td>
+      <td th:text="${employee.email}"></td>
+      <td th:text="${employee.dob}"></td>
+      <td th:text="${employee.salary}"></td>
+      <td th:text="${employee.doj}"></td>
+      <td>
+
+        <a th:href="@{/update/{id}(id=${employee.id})}" class="btn btn-primary">EDIT</a>
+
+      </td>
+      <td><a th:href="@{/delete/{id}(id=${employee.id})}" th:onclick="return deleteButton();" class="btn btn-danger">DELETE</a></td>
+      <td><br/></td>
+    </tr>
+  </table>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
