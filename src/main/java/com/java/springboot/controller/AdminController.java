@@ -31,7 +31,8 @@ public class AdminController {
         String name = principal.getName();
         Admin admin = adminService.findByEmail(name);
      //  model.addAttribute("listEmployees",employeeService.getAllEmployees());
-       model.addAttribute("listEmployees",employeeService.getAllEmployeesById(admin.getId()));
+        model.addAttribute("name", admin.getName());
+        model.addAttribute("listEmployees",employeeService.getAllEmployeesById(admin.getId()));
 
         return "employeeView";
     }

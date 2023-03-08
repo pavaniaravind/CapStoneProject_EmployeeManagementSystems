@@ -2,6 +2,8 @@ package com.java.springboot.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.io.Serializable;
 import java.util.List;
 
 @NoArgsConstructor
@@ -11,7 +13,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "admin")
-public class Admin {
+public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -3,6 +3,8 @@ package com.java.springboot.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -10,7 +12,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "employee")
-public class Employee {
+public class Employee implements Serializable {
 
    // @GeneratedValue(strategy = GenerationType.UUID)
   //  private UUID id;
@@ -28,5 +30,10 @@ public class Employee {
     private String employeeRole;
     @ManyToOne
     private Admin admin;
+
+    @ManyToOne
+    private Company company;
+
+
 
 }

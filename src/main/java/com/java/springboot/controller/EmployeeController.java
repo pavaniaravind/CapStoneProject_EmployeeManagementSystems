@@ -2,6 +2,7 @@ package com.java.springboot.controller;
 
 
 import com.java.springboot.model.Admin;
+import com.java.springboot.model.Company;
 import com.java.springboot.model.Employee;
 import com.java.springboot.repository.EmployeeRepository;
 import com.java.springboot.service.AdminService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -45,7 +47,7 @@ public class EmployeeController {
     }
     // save employee information in the database.
     @PostMapping("/saveEmployee")
-    public String processingEmployee(@ModelAttribute("employee") Employee employee, Principal principal) {
+    public String processingEmployee(@ModelAttribute("employee") Employee employee,Principal principal) {
         try {
             String name = principal.getName();
             Admin admin = adminService.findByEmail(name);
@@ -81,6 +83,17 @@ public class EmployeeController {
             adminService.saveAdmin(admin);
         }
         return "redirect:/list_employees";
+    }
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable(value="id")int id,@ModelAttribute("company") Company company, Principal principal, Model model){
+        String name = principal.getName();
+        Admin admin = adminService.findByEmail(name);
+        Employee employee = employeeRepository.findById(id).get();
+        model.addAttribute("empName", employee.getFirstName());
+        model.addAttribute("employee",employee);
+        company.setName("Euphoric");
+        model.addAttribute("company",company.getName());
+        return "empdetails";
     }
 
 
