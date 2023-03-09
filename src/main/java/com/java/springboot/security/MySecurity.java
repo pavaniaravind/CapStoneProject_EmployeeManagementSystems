@@ -32,7 +32,7 @@ public class MySecurity {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers("/list_employees","/register").authenticated()
+                .requestMatchers("/list_employees","/register","/details/*").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
